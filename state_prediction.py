@@ -1,3 +1,5 @@
+import datetime
+
 import numpy as np
 import yfinance as yf
 import matplotlib.pyplot as plt
@@ -151,7 +153,7 @@ def arima(data, future_periods=30):
     return future_forecast_series
 
 
-def analyze_ticker(ticker, start_date='2020-01-01', end_date='2024-08-16'):
+def analyze_ticker(ticker, start_date=str(datetime.datetime.today() - datetime.timedelta(days=1095)).split()[0], end_date=str(datetime.datetime.today()).split()[0]):
     """Main logic to analyze a specific ticker."""
     # Fetch and preprocess data
     data = fetch_data(ticker, start_date, end_date)
